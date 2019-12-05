@@ -17,9 +17,12 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        //$projects = Project::all();
+        $adminProjects = null;
+        if(Auth::check() && Auth::user()->role_id == 1 ) {
+            $this->adminProjects = Project::all();
+        }
         $projects = Auth::user()->projects;
-        return view('projects.index', compact('projects'));
+        return view('projects.index', compact('projects', 'adminProjects'));
     }
 
     /**
@@ -67,11 +70,12 @@ class ProjectsController extends Controller
         $comments = $project->comments;
         $tasks = $project->tasks;
         $tasksCount = $tasks->count();
+        $users = $project->users;
         // $comments = Comment::where([
         //     ['commentable_type', 'Project'],
         //     ['commentable_id', $project->id]
         // ])->get();
-        return view('projects.show', compact('project', 'tasks', 'tasksCount', 'comments'));
+        return view('projects.show', compact('project', 'tasks', 'tasksCount', 'comments', 'users'));
     }
 
     /**

@@ -18,8 +18,8 @@ class ProjectsController extends Controller
     public function index()
     {
         $adminProjects = null;
-        if(Auth::check() && Auth::user()->role_id == 1 ) {
-            $this->adminProjects = Project::all();
+        if (Auth::check() && Auth::user()->role_id == 1) {
+            $adminProjects = Project::all();
         }
         $projects = Auth::user()->projects;
         return view('projects.index', compact('projects', 'adminProjects'));

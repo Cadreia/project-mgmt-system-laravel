@@ -22,10 +22,12 @@ class CompaniesController extends Controller
      */
     public function index()
     {
-        //$companies = Company::all();
+        $adminCompanies = null;
+        if (Auth::check() && Auth::user()->role_id == 1) {
+            $adminCompanies = Company::all();
+        }
         //$companies = auth()->user()->companies;
         $companies = Auth::user()->companies;
-        $adminCompanies = Company::all();
         return view('companies.index', compact('companies', 'adminCompanies'));
     }
 

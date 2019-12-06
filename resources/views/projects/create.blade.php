@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header pt-3 text-center">
                     <h4>Create Project</h4>
-                    {{-- <div>Please tell us about your project</div> --}}
+                    <div>Please tell us about your project</div>
                 </div>
 
                 <div class="card-body">

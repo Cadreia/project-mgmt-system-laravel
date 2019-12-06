@@ -1,4 +1,4 @@
-        <div class="list-group list-group-flush">
+        <div class="list-group list-group-flush m-3">
             <ol>
                 {{-- @foreach ($users as $user) --}}
                     <li>

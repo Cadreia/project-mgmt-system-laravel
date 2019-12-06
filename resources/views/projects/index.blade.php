@@ -14,11 +14,19 @@
                         </div>
                     </div>
                     <div class="list-group">
-                        @foreach ($projects as $project)
+                        @if ($adminProjects == null)
+                            @foreach ($projects as $project)
                             <a href="/projects/{{ $project->id }}" class="list-group-item">
                                 {{ $project->name }}
                             </a>
-                        @endforeach
+                            @endforeach
+                        @else
+                            @foreach ($adminProjects as $project)
+                            <a href="/projects/{{ $project->id }}" class="list-group-item">
+                                {{ $project->name }}
+                            </a>
+                            @endforeach
+                        @endif
                     </div>
                 </div>
             </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Task;
 use App\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TasksController extends Controller
 {
@@ -20,8 +21,12 @@ class TasksController extends Controller
      */
     public function index()
     {
-        $tasks = Task::all();
-        return view('tasks.index', compact('tasks'));
+        $adminTasks = null;
+        if (Auth::check() && Auth::user()->role_id == 1) {
+            $adminTasks = Task::all();
+        }
+        $tasks = Auth::user()->tasks;
+        return view('tasks.index', compact('tasks', 'adminTasks'));
     }
 
     /**

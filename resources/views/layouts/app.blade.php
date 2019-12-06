@@ -65,8 +65,29 @@
                                 <a class="nav-link" href="{{ route('tasks.index') }}"><span class="fas fa-tasks"></span> Tasks</a>
                             </li>
                             @if (Auth::user()->role_id == 1)
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('tasks.index') }}"><span class="fas fa-tachometer-alt"></span> Dashboard</a>
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        <span class="fas fa-tachometer-alt"></span> Admin
+                                        <span class="caret"></span>
+                                    </a>
+
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('tasks.index') }}">
+                                            <span class="fas fa-user"></span> All Users
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('roles.index') }}">
+                                            <span class="fas fa-user"></span> All Roles
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('companies.index') }}">
+                                            <span class="fas fa-building"></span> All Companies
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('projects.index') }}">
+                                            <span class="fas fa-briefcase"></span> All Projects
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('tasks.index') }}">
+                                            <span class="fas fa-tasks"></span> All Tasks
+                                        </a>
+                                    </div>
                                 </li>
                             @endif
                             <li class="nav-item dropdown">

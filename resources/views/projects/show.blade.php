@@ -6,9 +6,9 @@
         <div class="bg-light border-right py-3" id="sidebar-wrapper">
             <div class="sidebar-heading text-uppercase text-center"><h5>Actions</h5></div>
                 <div class="list-group list-group-flush">
-                    <a href="/projects/{{ $project->id }}/edit" class="list-group-item list-group-item-action bg-light"><span class="fas fa-edit blue"></span> Edit</a>
-                    <a href="/projects" class="list-group-item list-group-item-action bg-light"><span class="fas fa-briefcase blue"></span> All Projects</a>
-                    <a href="/tasks/create/{{ $project->id }}" class="list-group-item list-group-item-action bg-light"><span class="fas fa-tasks blue"></span> Add Task</a><br>
+                    <a href="/projects/{{ $project->id }}/edit" class="list-group-item list-group-item-action bg-light"><span class="fas fa-edit"> Edit</span></a>
+                    <a href="/projects" class="list-group-item list-group-item-action bg-light"><span class="fas fa-briefcase"></span> All Projects</a>
+                    <a href="/tasks/create/{{ $project->id }}" class="list-group-item list-group-item-action bg-light"><span class="fas fa-tasks"></span> Add Task</a><br>
                     <a
                         onclick="
                             var result = confirm('Are you sure you want to delete this project?');
@@ -19,12 +19,12 @@
                         "
                         href=""
                         class="list-group-item list-group-item-action bg-light">
-                        Delete
+                        <span class="fas fa-trash-alt"> Delete</span>
                     </a>
                 </div><br>
 
             <div class="px-2">
-                <h5 class="sidebar-heading text-uppercase text-center">Add Member</h5>
+                <h5 class="sidebar-heading text-uppercase text-center"><span class="fas fa-user-plus"></span> Add Member</h5>
                 <input type="text" class="form-control mb-2" placeholder="Enter email">
                 <button type="submit" class="btn btn-primary btn-sm btn-block">Invite</button>
             </div><br>
